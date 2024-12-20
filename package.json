@@ -1,0 +1,17 @@
+{
+  "name": "dummyalternativeserver",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.9",
+    "xmldom": "^0.6.0"
+  }
+}
