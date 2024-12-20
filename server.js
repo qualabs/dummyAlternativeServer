@@ -9,7 +9,19 @@ const port = 3030;
 const manifestUrlStatic = 'https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd';
 const manifestUrlLive = 'https://demo.unified-streaming.com/k8s/live/scte35.isml/.mpd';
 
-const server = https.createServer((req, res) => {
+const server = http.createServer((req, res) => {
+  
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, x-requested-with');
+
+  // Handle preflight request
+  if (req.method === 'OPTIONS') {
+    res.writeHead(204);
+    res.end();
+    return;
+  }
+
   const url = new URL(req.url, `http://${req.headers.host}`);
 
   const isLive = url.searchParams.get('live') === '1';
