@@ -9,7 +9,7 @@ const port = 3030;
 const manifestUrlStatic = 'https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd';
 const manifestUrlLive = 'https://demo.unified-streaming.com/k8s/live/scte35.isml/.mpd';
 
-const server = http.createServer((req, res) => {
+const server = https.createServer((req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
 
   const isLive = url.searchParams.get('live') === '1';
